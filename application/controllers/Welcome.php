@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -20,9 +21,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$isi['konten'] = 'beranda';
-		$this->load->view('header', $isi);
-		
-		//$this->load->view('mahasiswa/login');	
+		$this->load->view('auth/login');
 	}
 }
