@@ -47,13 +47,33 @@
 
           <?php foreach ($subMenu as $sm) : ?>
               <?php if ($title == $sm['title']) : ?>
-                  <li class="nav-item active">
+                  <li class="nav-item active" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                   <?php else : ?>
-                  <li class="nav-item ">
+                  <li class="nav-item" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                   <?php endif; ?>
-                  <a class="nav-link" href="<?= base_url($sm['url']) ?>">
-                      <i class="<?= $sm['icon'] ?>"></i>
-                      <span><?= $sm['title'] ?></span></a>
+                  <a class="nav-link">
+                      <?php if ($role_id == 5) : ?>
+                          <i class="fas fa-fw fa-cog"></i>
+                          <span>Data Sasaran Posyandu</span>
+                      </a>
+                      <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                          <div class="bg-white py-2 collapse-inner rounded">
+                              <h6 class="collapse-header">Data Sasaran:</h6>
+                              <a class="collapse-item" href="login.html">Bayi dan Balita</a>
+                              <a class="collapse-item" href="register.html">Ibu Hamil</a>
+                              <a class="collapse-item" href="forgot-password.html">Ibu Nifas</a>
+                              <a class="collapse-item" href="login.html">Ibu Menyusui</a>
+                              <a class="collapse-item" href="register.html">WUS dan PUS</a>
+                              <a class="collapse-item" href="forgot-password.html">Lansia</a>
+                          </div>
+                      </div>
+                  </li>
+
+              <?php else : ?>
+                  <i class="<?= $sm['icon'] ?>"></i>
+                  <span><?= $sm['title'] ?> </span></a>
+              <?php endif; ?>
+
               </li>
 
 
@@ -62,6 +82,8 @@
 
 
       <!-- Nav Item - Dashboard -->
+
+
 
       <!-- Nav Item - Pages Collapse Menu -->
 
