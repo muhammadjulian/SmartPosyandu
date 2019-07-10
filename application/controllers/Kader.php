@@ -6,7 +6,7 @@ class Kader extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Kader';
+        $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
