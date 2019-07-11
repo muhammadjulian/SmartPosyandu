@@ -1,6 +1,8 @@
+<?php
+  if($this->session->userdata('role_id')==1){
+?>
   <!-- Sidebar -->
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
           <div class="sidebar-brand-icon rotate-n-15">
@@ -8,12 +10,7 @@
           </div>
           <div class="sidebar-brand-text mx-3"> <small>SmartPosyandu</small></div>
       </a>
-
       <!-- MENU UNTUK ROLE ID 1 (ADMIN) -->
-      <?php
-        if($this->session->userdata('role_id')==1){
-      ?>
-
       <hr class="sidebar-divider ">
       <!-- Nav Item - Dashboard -->
         <!-- Heading -->
@@ -34,11 +31,29 @@
             </div>
         </div>
         </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <!-- Sidebar Toggler (Sidebar) -->
+          <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          </div>
+      </ul>
+      <!-- End of Sidebar -->
+
 
         <!-- MASUK KE MENU ROLE KE 2 (DINKES) -->
           <?php
             }else if($this->session->userdata('role_id')==5){
           ?>
+          <!-- Sidebar -->
+          <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+              <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <div class="sidebar-brand-text mx-3">Smart<small>Posyandu</small></div>
+            </a>
 
           <hr class="sidebar-divider">
           <!-- Heading -->
@@ -76,12 +91,30 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?= base_url('kader/databayita');?>">Data Bayi/Balita</a>
-                <a class="collapse-item" href="register.html">Data Bayi Ibu Hamil</a>
-                <a class="collapse-item" href="forgot-password.html">Data Ibu Nifas</a>
-                <a class="collapse-item" href="forgot-password.html">Data Ibu Menyusui</a>
+                <a class="collapse-item" href="<?= base_url('kader/dataibuhamil');?>">Data Ibu Hamil</a>
+                <a class="collapse-item" href="<?= base_url('kader/dataibunifas');?>">Data Ibu Nifas</a>
+                <a class="collapse-item" href="<?= base_url('kader/dataibumenyusui');?>">Data Ibu Menyusui</a>
                 <a class="collapse-item" href="forgot-password.html">Data Lansia</a>
                 <a class="collapse-item" href="forgot-password.html">Data WUS</a>
                 <a class="collapse-item" href="forgot-password.html">Data PUS</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsePages">
+              <i class="fas fa-project-diagram"></i>
+              <span>SIP</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">Format 1</a>
+                <a class="collapse-item" href="#">Fromat 2</a>
+                <a class="collapse-item" href="#">Fromat 3</a>
+                <a class="collapse-item" href="#">Fromat 4</a>
+                <a class="collapse-item" href="#">Fromat 5</a>
+                <a class="collapse-item" href="#">Fromat 6</a>
               </div>
             </div>
           </li>
@@ -95,6 +128,5 @@
           <div class="text-center d-none d-md-inline">
               <button class="rounded-circle border-0" id="sidebarToggle"></button>
           </div>
-
       </ul>
       <!-- End of Sidebar -->

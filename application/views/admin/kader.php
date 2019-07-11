@@ -20,7 +20,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/databayita');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!--Box Kecil 2-->
@@ -33,7 +33,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/dataibuhamil');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!--Box Kecil 4-->
@@ -46,7 +46,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/dataibunifas');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -58,7 +58,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/dataibumenyusui');?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!--Box Kecil 5-->

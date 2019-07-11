@@ -51,4 +51,26 @@ class Kader extends CI_Controller
         $this->load->view('kader/dataibuhamil', $data);
         $this->load->view('templates/foot');
     }
+    public function dataibunifas(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/dataibunifas', $data);
+        $this->load->view('templates/foot');
+    }
+    public function dataibumenyusui(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/dataibumenyusui', $data);
+        $this->load->view('templates/foot');
+    }
 }

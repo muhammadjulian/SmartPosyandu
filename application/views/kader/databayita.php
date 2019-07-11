@@ -3,11 +3,11 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Data Bayi & Balita</h6>
+              <h6 class="m-0 font-weight-bold">Data Bayi & Balita</h6>
             </div>
             <div class="card-body">
               <p>
-                <button class="btn btn-primary" title="tambah" data-toggle="modal" data-target="#modal_imunisasi"><i class="fas fa-plus"></i></button>
+                <button class="btn btn-danger" title="tambah" data-toggle="modal" data-target="#modal_imunisasi"><i class="fas fa-plus"></i></button>
                 <button class="btn btn-success"><i class="fas fa-file-csv"></i></button>
                 <button class="btn btn-default"><i class="fas fa-trash-alt"></i></button>
               </p>
