@@ -6,14 +6,14 @@ class Kader extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Data Sasaran Posyandu';
+        $data['title'] = 'Admin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/kader', $data);
+        $this->load->view('admin/Kader', $data);
         $this->load->view('templates/foot');
     }
     public function imunisasi(){
@@ -25,6 +25,30 @@ class Kader extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('kader/imunisasi', $data);
+        $this->load->view('templates/foot');
+    }
+
+    public function databayita(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/databayita', $data);
+        $this->load->view('templates/foot');
+    }
+
+    public function dataibuhamil(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/dataibuhamil', $data);
         $this->load->view('templates/foot');
     }
 }

@@ -54,6 +54,9 @@
 <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 <script src="<?= base_url('assets/js/adminlte.min.js');?>"> </script>
 
+<!-- Tanggal Java Script -->
+<script src="<?= base_url('assets/js/bootstrap-datepicker.js');?>"> </script>
+
 </body>
 
 </html>

@@ -9,100 +9,92 @@
           <div class="sidebar-brand-text mx-3"> <small>SmartPosyandu</small></div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider ">
-
-      <!-- Query Menu -->
+      <!-- MENU UNTUK ROLE ID 1 (ADMIN) -->
       <?php
-        $role_id = $this->session->userdata('role_id');
-        $queryMenu = "SELECT `user_menu`.`id`, `menu`
-        FROM `user_menu` JOIN `user_access_menu`
-          ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-       WHERE `user_access_menu`.`role_id`= $role_id
-       ORDER BY `user_access_menu`.`menu_id` ASC
-        ";
-        $menu = $this->db->query($queryMenu)->result_array();
+        if($this->session->userdata('role_id')==1){
+      ?>
 
-        ?>
+      <hr class="sidebar-divider ">
+      <!-- Nav Item - Dashboard -->
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Interface
+        </div>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Components</span>
+          </a>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Custom Components:</h6>
+              <a class="collapse-item" href="buttons.html">Buttons</a>
+              <a class="collapse-item" href="cards.html">Cards</a>
+            </div>
+        </div>
+        </li>
 
+        <!-- MASUK KE MENU ROLE KE 2 (DINKES) -->
+          <?php
+            }else if($this->session->userdata('role_id')==5){
+          ?>
 
-      <!-- Lopping MENU -->
-
-      <?php foreach ($menu as $m) : ?>
+          <hr class="sidebar-divider">
+          <!-- Heading -->
           <div class="sidebar-heading">
-              <?= $m['menu']; ?>
+            Menu admin kader
+          </div>
+          <!-- Nav Item - Utilities Collapse Menu -->
+          <li class="nav-item">
+             <a class="nav-link collapsed" href="<?= base_url('kader/index');?>">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+              <i class="fas fa-stethoscope"></i>
+              <span>Pelayanan</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?= base_url('kader/imunisasi');?>">Imunisasi</a>
+                <a class="collapse-item" href="utilities-border.html">Penimbangan</a>
+                <a class="collapse-item" href="utilities-animation.html">Pemeriksaan</a>
+                <a class="collapse-item" href="utilities-other.html">Pencatatan Kematian</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+              <i class="fas fa-book"></i>
+              <span>Sasaran Posyandu</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?= base_url('kader/databayita');?>">Data Bayi/Balita</a>
+                <a class="collapse-item" href="register.html">Data Bayi Ibu Hamil</a>
+                <a class="collapse-item" href="forgot-password.html">Data Ibu Nifas</a>
+                <a class="collapse-item" href="forgot-password.html">Data Ibu Menyusui</a>
+                <a class="collapse-item" href="forgot-password.html">Data Lansia</a>
+                <a class="collapse-item" href="forgot-password.html">Data WUS</a>
+                <a class="collapse-item" href="forgot-password.html">Data PUS</a>
+              </div>
+            </div>
+          </li>
+          <?php
+            }
+          ?>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+          <!-- Sidebar Toggler (Sidebar) -->
+          <div class="text-center d-none d-md-inline">
+              <button class="rounded-circle border-0" id="sidebarToggle"></button>
           </div>
 
-          <!--Siapkan sub menu -->
-          <?php
-            $menuId = $m['id'];
-            $querySubmenu = "SELECT *
-            FROM `user_sub_menu` JOIN `user_menu`
-              ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
-           WHERE `user_sub_menu`.`menu_id` =$menuId
-           And `user_sub_menu`.`is_active`=1
-            ";
-            $subMenu = $this->db->query($querySubmenu)->result_array();
-            ?>
-
-          <?php foreach ($subMenu as $sm) : ?>
-              <?php if ($title == $sm['title']) : ?>
-                  <li class="nav-item active" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                  <?php else : ?>
-                  <li class="nav-item" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                  <?php endif; ?>
-                  <a class="nav-link">
-                      <?php if ($role_id == 5) : ?>
-                          <i class="fas fa-fw fa-cog"></i>
-                          <span>Data Sasaran Posyandu</span>
-                      </a>
-                      <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                          <div class="bg-white py-2 collapse-inner rounded">
-                              <h6 class="collapse-header">Data Sasaran:</h6>
-                              <a class="collapse-item" href="login.html">Bayi dan Balita</a>
-                              <a class="collapse-item" href="register.html">Ibu Hamil</a>
-                              <a class="collapse-item" href="forgot-password.html">Ibu Nifas</a>
-                              <a class="collapse-item" href="login.html">Ibu Menyusui</a>
-                              <a class="collapse-item" href="register.html">WUS dan PUS</a>
-                              <a class="collapse-item" href="forgot-password.html">Lansia</a>
-                          </div>
-                      </div>
-                  </li>
-
-              <?php else : ?>
-                  <i class="<?= $sm['icon'] ?>"></i>
-                  <span><?= $sm['title'] ?> </span></a>
-              <?php endif; ?>
-
-              </li>
-
-
-          <?php endforeach; ?>
-      <?php endforeach; ?>
-
-
-      <!-- Nav Item - Dashboard -->
-
-
-
-      <!-- Nav Item - Pages Collapse Menu -->
-
-
-      <hr class="sidebar-divider">
-      <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
-              <i class="fas fa-sign-out-alt fa-fw"></i>
-              <span>logout</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-          <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-  </ul>
-  <!-- End of Sidebar -->
+      </ul>
+      <!-- End of Sidebar -->
