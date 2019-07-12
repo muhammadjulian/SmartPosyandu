@@ -61,13 +61,13 @@
             Menu admin kader
           </div>
           <!-- Nav Item - Utilities Collapse Menu -->
-          <li class="nav-item">
-             <a class="nav-link collapsed" href="<?= base_url('kader/index');?>">
+          <li class="nav-item " >
+             <a class="nav-link" href="<?= base_url('kader/index');?>">
               <i class="fas fa-tachometer-alt"></i>
               <span>Dashboard</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
               <i class="fas fa-stethoscope"></i>
               <span>Pelayanan</span>
@@ -109,12 +109,12 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Format 1</a>
-                <a class="collapse-item" href="#">Fromat 2</a>
-                <a class="collapse-item" href="#">Fromat 3</a>
-                <a class="collapse-item" href="#">Fromat 4</a>
-                <a class="collapse-item" href="#">Fromat 5</a>
-                <a class="collapse-item" href="#">Fromat 6</a>
+                <a class="collapse-item" href="<?= base_url('kader/SIP_format1');?>">Format 1</a>
+                <a class="collapse-item" href="<?= base_url('kader/SIP_format2');?>">Fromat 2</a>
+                <a class="collapse-item" href="<?= base_url('kader/SIP_format3');?>">Fromat 3</a>
+                <a class="collapse-item" href="<?= base_url('kader/SIP_format4');?>">Fromat 4</a>
+                <a class="collapse-item" href="<?= base_url('kader/SIP_format5');?>">Fromat 5</a>
+                <a class="collapse-item" href="<?= base_url('kader/SIP_format6');?>">Fromat 6</a>
               </div>
             </div>
           </li>

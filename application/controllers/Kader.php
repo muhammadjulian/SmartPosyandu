@@ -73,4 +73,73 @@ class Kader extends CI_Controller
         $this->load->view('kader/dataibumenyusui', $data);
         $this->load->view('templates/foot');
     }
+
+    public function SIP_format1(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format1', $data);
+        $this->load->view('templates/foot');
+    }
+
+    public function SIP_format2(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format2', $data);
+        $this->load->view('templates/foot');
+    }
+    public function SIP_format3(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format3', $data);
+        $this->load->view('templates/foot');
+    }
+    public function SIP_format4(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format4', $data);
+        $this->load->view('templates/foot');
+    }
+    public function SIP_format5(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format5', $data);
+        $this->load->view('templates/foot');
+    }
+    public function SIP_format6(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format6', $data);
+        $this->load->view('templates/foot');
+    }
+
+
 }
