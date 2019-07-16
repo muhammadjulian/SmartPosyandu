@@ -12,83 +12,58 @@
     </h1>
     <div class="row">
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Seluruh Posyandu</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">1800</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--Box Kecil 1-->
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>6.550</h3>
+                    <p>Data Bayita</p>
                 </div>
+                <div class="icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <a href="<?= base_url('kader/databayita');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Per-Kecamatan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">1800</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--Box Kecil 2-->
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>459</h3>
+                    <p>Data Ibu Hamil</p>
                 </div>
+                <div class="icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <a href="<?= base_url('kader/dataibuhamil');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">per-kecamatan</div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">500</div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--Box Kecil 4-->
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>238</h3>
+                    <p>Data Ibu Nifas</p>
                 </div>
+                <div class="icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <a href="<?= base_url('kader/dataibunifas');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Dasawisma</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>45.000</h3>
+                    <p>Data Ibu Menyusui</p>
                 </div>
+                <div class="icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <a href="<?= base_url('kader/dataibumenyusui');?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-    </div>
+</div>
 
     <div class="row">
         <div class="col-lg-7">

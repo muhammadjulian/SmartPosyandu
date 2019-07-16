@@ -15,13 +15,19 @@ if ($this->session->userdata('role_id') == 1) {
     <!-- Nav Item - Dashboard -->
     <!-- Heading -->
     <div class="sidebar-heading">
-      Menu admi kominfo
+      Menu admin kominfo
     </div>
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('admin/index'); ?>">
         <i class="fas fa-tachometer-alt"></i>
         <span>Dash</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?= base_url('admin/posyandu_v');?>">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Posyandu</span>
       </a>
     </li>
     <hr class="sidebar-divider">
@@ -78,12 +84,12 @@ if ($this->session->userdata('role_id') == 1) {
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="#">Format 1</a>
-          <a class="collapse-item" href="#">Fromat 2</a>
-          <a class="collapse-item" href="#">Fromat 3</a>
-          <a class="collapse-item" href="#">Fromat 4</a>
-          <a class="collapse-item" href="#">Fromat 5</a>
-          <a class="collapse-item" href="#">Fromat 6</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format1'); ?>">Format 1</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format2'); ?>">Fromat 2</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format3'); ?>">Fromat 3</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
         </div>
       </div>
     </li>
@@ -119,6 +125,12 @@ if ($this->session->userdata('role_id') == 1) {
         <a class="nav-link collapsed" href="<?= base_url('kader/index'); ?>">
           <i class="fas fa-tachometer-alt"></i>
           <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url('kader/layanan_utama'); ?>">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Layanan Utama</span>
         </a>
       </li>
       <li class="nav-item">
@@ -161,16 +173,16 @@ if ($this->session->userdata('role_id') == 1) {
           <i class="fas fa-project-diagram"></i>
           <span>SIP</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Format 1</a>
-            <a class="collapse-item" href="#">Fromat 2</a>
-            <a class="collapse-item" href="#">Fromat 3</a>
-            <a class="collapse-item" href="#">Fromat 4</a>
-            <a class="collapse-item" href="#">Fromat 5</a>
-            <a class="collapse-item" href="#">Fromat 6</a>
-          </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format1'); ?>">Format 1</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format2'); ?>">Fromat 2</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format3'); ?>">Fromat 3</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
+          <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
         </div>
+      </div>
       </li>
     <?php
     }
