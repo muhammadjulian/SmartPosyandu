@@ -25,9 +25,27 @@ if ($this->session->userdata('role_id') == 1) {
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= base_url('admin/posyandu_v');?>">
-        <i class="fas fa-tachometer-alt"></i>
+      <a class="nav-link collapsed" href="<?= base_url('kominfo/biodata'); ?>">
+        <i class="fas fa-users"></i>
+        <span>Biodata</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?= base_url('kominfo/kelurahan'); ?>">
+        <i class="fas fa-landmark"></i>
+        <span>Kelurahan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?= base_url('kominfo/posyandu'); ?>">
+        <i class="fas fa-clinic-medical"></i>
         <span>Posyandu</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?= base_url('kominfo/strata'); ?>">
+        <i class="fas fa-strikethrough"></i>
+        <span>Strata</span>
       </a>
     </li>
     <hr class="sidebar-divider">
@@ -42,6 +60,13 @@ if ($this->session->userdata('role_id') == 1) {
         <span>Dashboard</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?= base_url('kader/layanan_utama'); ?>">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Layanan Utama</span>
+      </a>
+    </li>
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-stethoscope"></i>
@@ -84,12 +109,12 @@ if ($this->session->userdata('role_id') == 1) {
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format1'); ?>">Format 1</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format2'); ?>">Fromat 2</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format3'); ?>">Fromat 3</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
+          <a class="collapse-item" href="#">Format 1</a>
+          <a class="collapse-item" href="#">Fromat 2</a>
+          <a class="collapse-item" href="#">Fromat 3</a>
+          <a class="collapse-item" href="#">Fromat 4</a>
+          <a class="collapse-item" href="#">Fromat 5</a>
+          <a class="collapse-item" href="#">Fromat 6</a>
         </div>
       </div>
     </li>
@@ -173,16 +198,16 @@ if ($this->session->userdata('role_id') == 1) {
           <i class="fas fa-project-diagram"></i>
           <span>SIP</span>
         </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format1'); ?>">Format 1</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format2'); ?>">Fromat 2</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format3'); ?>">Fromat 3</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
-          <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format1'); ?>">Format 1</a>
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format2'); ?>">Fromat 2</a>
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format3'); ?>">Fromat 3</a>
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
+          </div>
         </div>
-      </div>
       </li>
     <?php
     }
