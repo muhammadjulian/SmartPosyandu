@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2019 at 12:57 PM
+-- Generation Time: Jul 17, 2019 at 04:25 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bayita` (
   `id` int(11) NOT NULL,
   `nik` int(20) NOT NULL,
+  `nik_ibu` int(20) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `umur` int(3) NOT NULL,
   `tempat_lahir` varchar(128) NOT NULL,
@@ -47,12 +48,20 @@ CREATE TABLE `bayita` (
 CREATE TABLE `biodata` (
   `id` int(11) NOT NULL,
   `nik` int(20) NOT NULL,
-  `nama` int(128) NOT NULL,
+  `nama` varchar(128) NOT NULL,
   `jk` varchar(1) NOT NULL,
   `tempat_lahir` varchar(128) NOT NULL,
-  `Tanggal_lahir` int(20) NOT NULL,
+  `tanggal_lahir` int(20) NOT NULL,
   `posyandu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `biodata`
+--
+
+INSERT INTO `biodata` (`id`, `nik`, `nama`, `jk`, `tempat_lahir`, `tanggal_lahir`, `posyandu_id`) VALUES
+(1, 12345, 'Abu Jahal', 'L', 'Mekah, Arab Saudi', 17790, 4),
+(2, 12345678, 'Abu Lahab', 'L', 'Madinah, Arab Saudi', 301912, 5);
 
 -- --------------------------------------------------------
 
@@ -75,6 +84,7 @@ CREATE TABLE `dasawisma` (
 CREATE TABLE `ibu_hamil` (
   `id` int(11) NOT NULL,
   `nik` int(20) NOT NULL,
+  `nik_pasangan` int(20) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `umur_kehamilan` int(3) NOT NULL,
   `ukuran-lila` int(5) NOT NULL,
@@ -93,6 +103,8 @@ CREATE TABLE `ibu_hamil` (
 CREATE TABLE `ibu_menyusui` (
   `id` int(11) NOT NULL,
   `nik` int(20) NOT NULL,
+  `nik_pasangan` int(20) NOT NULL,
+  `nik_anak` int(20) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `ukuran_lila` int(10) NOT NULL,
   `masa_menyusui` varchar(25) NOT NULL,
@@ -248,6 +260,14 @@ CREATE TABLE `layananutama` (
   `layananutama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `layananutama`
+--
+
+INSERT INTO `layananutama` (`id`, `layananutama`) VALUES
+(1, 'makan'),
+(12, 'baju');
+
 -- --------------------------------------------------------
 
 --
@@ -256,6 +276,7 @@ CREATE TABLE `layananutama` (
 
 CREATE TABLE `posyandu` (
   `id` int(5) NOT NULL,
+  `kecamatan_id` int(4) NOT NULL,
   `kelurahan_id` int(4) NOT NULL,
   `posyandu` varchar(25) NOT NULL,
   `alamat` varchar(100) NOT NULL,
@@ -268,10 +289,9 @@ CREATE TABLE `posyandu` (
 -- Dumping data for table `posyandu`
 --
 
-INSERT INTO `posyandu` (`id`, `kelurahan_id`, `posyandu`, `alamat`, `strata_id`, `lat`, `lng`) VALUES
-(1, 1, '', 'Jl. Selamat', 4, 'bisa', 100),
-(2, 2, '', 'Jl. Merdeka', 3, 'bisa', 100),
-(3, 2, '', 'edde', 1, 'dee', 123);
+INSERT INTO `posyandu` (`id`, `kecamatan_id`, `kelurahan_id`, `posyandu`, `alamat`, `strata_id`, `lat`, `lng`) VALUES
+(5, 5, 8, 'merah', 'jl. buntu', 3, 'frt', 4444),
+(7, 3, 9, 'jajal', 'jalan maju terus', 4, 'wssssssssss', 12123123);
 
 -- --------------------------------------------------------
 
@@ -354,7 +374,8 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 ALTER TABLE `bayita`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nik` (`nik`),
-  ADD KEY `nik_2` (`nik`);
+  ADD KEY `nik_2` (`nik`),
+  ADD KEY `nik_ibu` (`nik_ibu`);
 
 --
 -- Indexes for table `biodata`
@@ -366,21 +387,25 @@ ALTER TABLE `biodata`
 -- Indexes for table `dasawisma`
 --
 ALTER TABLE `dasawisma`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `posyandu_id` (`posyandu_id`);
 
 --
 -- Indexes for table `ibu_hamil`
 --
 ALTER TABLE `ibu_hamil`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nik` (`nik`);
+  ADD KEY `nik` (`nik`),
+  ADD KEY `nik_pasangan` (`nik_pasangan`);
 
 --
 -- Indexes for table `ibu_menyusui`
 --
 ALTER TABLE `ibu_menyusui`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nik` (`nik`);
+  ADD KEY `nik` (`nik`),
+  ADD KEY `nik_pasangan` (`nik_pasangan`),
+  ADD KEY `nik_anak` (`nik_anak`);
 
 --
 -- Indexes for table `kecamatan`
@@ -419,7 +444,9 @@ ALTER TABLE `layananutama`
 --
 ALTER TABLE `posyandu`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `kelurahan_id` (`kelurahan_id`);
+  ADD KEY `kelurahan_id` (`kelurahan_id`),
+  ADD KEY `strata_id` (`strata_id`),
+  ADD KEY `kecamatan_id` (`kecamatan_id`);
 
 --
 -- Indexes for table `strataposyandu`
@@ -453,7 +480,7 @@ ALTER TABLE `bayita`
 -- AUTO_INCREMENT for table `biodata`
 --
 ALTER TABLE `biodata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `dasawisma`
 --
@@ -493,12 +520,12 @@ ALTER TABLE `layanantambahan`
 -- AUTO_INCREMENT for table `layananutama`
 --
 ALTER TABLE `layananutama`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `posyandu`
 --
 ALTER TABLE `posyandu`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `strataposyandu`
 --
