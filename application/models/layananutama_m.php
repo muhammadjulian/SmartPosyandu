@@ -10,10 +10,7 @@ Class layananutama_m extends CI_Model{
 	}
 
 	public function getLayananById(){
-		$data = [
-			"layananutama" => $this->input->post('layananutama', true)];
-		$this->db->where('id', $this->input->post('id'));
-		$this->db->update('layananutama', $data);
+		return $this->db->get_where('layananutama',['id' => $id])->row_array();
 	}
 
 	public function updateLayanan()

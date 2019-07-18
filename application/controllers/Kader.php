@@ -6,10 +6,7 @@ class Kader extends CI_Controller
         public function __construct()
         {
             parent::__construct();
-            
-            //model
             $this->load->model("layananutama_m");
-            $this->load->helper('url');
         }
 
     public function index()
@@ -67,25 +64,13 @@ class Kader extends CI_Controller
         redirect('kader/layanan_utama');
     }
 
-    // public function editlayanan($id)
-    // {
-    //     $data['title']='Edit'
-    //     $data['layanan_utama'] = $this->layananutama_m->getLayananById($id);
-
-    //     $this->form_validation->set_rules('layananutama', 'Layanan Utama', 'required');
-
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('templates/head', $data);
-    //         $this->load->view('templates/sidebar', $data);
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('kader/layanan_utama', $data);
-    //         $this->load->view('templates/foot');
-    //     } else {
-    //         $this->layananutama_m->ubahDataMahasiswa();
-    //         $this->session->set_flashdata('message', 'Diubah');
-    //         redirect('kader/layanan_utama');
-    //     }
-    // }
+    public function editlayanan($id)
+    {   
+        $data['layanan_utama']=$this->layananutama_m->getLayananById($id);
+        $this->layananutama_m->updateLayanan();
+        $this->session->set_flashdata('message', 'Diubah');
+            redirect('kader/layanan_utama');
+    }
 
     public function databayita(){
         $data['title'] = 'Data Sasaran Posyandu';

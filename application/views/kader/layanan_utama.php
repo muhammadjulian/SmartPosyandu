@@ -2,9 +2,9 @@
         <div class="container-fluid">
           <?= form_error('layananutama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-          <!-- <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"> -->
+          <!-- <div class="flash-data" data-flashdata=""></div> -->
           <?php if ($this->session->flashdata('message')) : ?>
-            <div class="row mt-3">
+           <div class="row mt-3">
               <div class="col-md-12">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                   Data Layanan berhasil
@@ -51,7 +51,7 @@
                         <th><?= $lyu['layananutama'] ?></th>
                         <th>
                           <a href="#" class="badge badge-success" title="hapus data" data-toggle="modal" data-target="#modal_layananedit">edit</a>
-                          <a href="#" class="badge badge-danger" title="hapus data" data-toggle="modal" data-target="#modal_konfirmasi">delete</a>
+                          <a class="badge badge-danger" title="hapus data" href="<?= base_url(); ?>kader/deletelayanan/<?= $lyu['id']; ?>" onclick="return confirm('yakin ?')">delete</a>
                         </th>
                       </tr>
                       <?php $i++; ?>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="modal-body">
                   <!-- FORM INPUT LAYANAN -->
-                  <form action="<?= base_url('kader/layanan_utama'); ?>" method="post">
+                  <form action="<?= base_url('kader/editLayanan'); ?>" method="post">
                     <div class="form-group">
                       <input type="text" class="form-control" name="layananutama" id="layananutama" value="<?= $lyu['layananutama']; ?>" required>
                     </div>
@@ -114,7 +114,7 @@
           </div>
 
           <!-- MODAL KONFIRMASI -->
-          <div class="modal fade" id="modal_konfirmasi" tabiindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--           <div class="modal fade" id="modal_konfirmasi" tabiindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -127,9 +127,9 @@
                   <p id="confirm_str">Apakah anda yakin akan menghapus data? </p>
                 </div>
                 <div class="modal-footer">
-                  <a class="btn btn-danger" href="<?= base_url(); ?>kader/deletelayanan/<?= $lyu['id']; ?>">Hapus</a>
+                  <button class="btn btn-danger" id="delete">Hapus</button>
                   <button class="btn btn-default btn-sm" data-dismiss="modal">Batal</button>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->

@@ -120,10 +120,6 @@ if ($this->session->userdata('role_id') == 1) {
     </li>
 
 
-    <!-- Divider -->
-
-
-    <!-- End of Sidebar -->
 
 
     <!-- MASUK KE MENU ROLE KE 2 (DINKES) -->
@@ -153,41 +149,47 @@ if ($this->session->userdata('role_id') == 1) {
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('kader/layanan_utama'); ?>">
-          <i class="fas fa-tachometer-alt"></i>
-          <span>Layanan Utama</span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-stethoscope"></i>
-          <span>Pelayanan</span>
+          <i class="fas fa-folder"></i>
+          <span>Menu Utama</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('kader/imunisasi'); ?>">Imunisasi</a>
-            <a class="collapse-item" href="utilities-border.html">Penimbangan</a>
-            <a class="collapse-item" href="utilities-animation.html">Pemeriksaan</a>
-            <a class="collapse-item" href="utilities-other.html">Pencatatan Kematian</a>
+            <a class="collapse-item" href="<?= base_url('kader/layanan_utama'); ?>">Biodata Penduduk</a>
+            <a class="collapse-item" href="<?= base_url('kader/layanan_utama'); ?>">Data Sumber Dana</a>
+            <a class="collapse-item" href="utilities-border.html">Dasawisma</a>
+            <a class="collapse-item" href="utilities-animation.html">Jenis Layanan</a>
+          </div>
+        </div>
+      </li>
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-book"></i>
+          <span>Data Posyandu</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('kader/databayita'); ?>">Data Bayi/Balita</a>
+            <a class="collapse-item" href="<?= base_url('kader/dataibuhamil'); ?>">Data Ibu Hamil, Nifas,<br>Menyusui</a>
+            <a class="collapse-item" href="forgot-password.html">Data Lansia</a>
+            <a class="collapse-item" href="forgot-password.html">Data WUS & PUS</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
           <i class="fas fa-book"></i>
-          <span>Sasaran Posyandu</span>
+          <span>Pelayanan</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapseTre" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('kader/databayita'); ?>">Data Bayi/Balita</a>
-            <a class="collapse-item" href="<?= base_url('kader/dataibuhamil'); ?>">Data Ibu Hamil</a>
-            <a class="collapse-item" href="<?= base_url('kader/dataibunifas'); ?>">Data Ibu Nifas</a>
-            <a class="collapse-item" href="<?= base_url('kader/dataibumenyusui'); ?>">Data Ibu Menyusui</a>
+            <a class="collapse-item" href="<?= base_url('kader/dataibuhamil'); ?>">Data Ibu Hamil, Nifas,<br>Menyusui</a>
             <a class="collapse-item" href="forgot-password.html">Data Lansia</a>
-            <a class="collapse-item" href="forgot-password.html">Data WUS</a>
-            <a class="collapse-item" href="forgot-password.html">Data PUS</a>
+            <a class="collapse-item" href="forgot-password.html">Data WUS & PUS</a>
           </div>
         </div>
       </li>

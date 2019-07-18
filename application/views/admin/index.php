@@ -66,124 +66,162 @@
 </div>
 
     <div class="row">
-        <div class="col-lg-7">
 
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="far fa-chart-bar"></i> Grafik Posyandu Kota Bogor</div>
-                <div id="jmlh_pos"></div>
-                <script>
-                    Highcharts.chart('jmlh_pos', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Kecamatan Kota Bogor'
-                        },
-                        subtitle: {
+        <!-- CHART GRAFIK POSYANDU 1 -->
+        <div class="col-lg-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Grafik Posyandu Kota Bogor</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <div class="card mb-3">
+                        <div id="jmlh_pos"></div>
+                            <script>
+                                Highcharts.chart('jmlh_pos', {
+                                    chart: {
+                                        type: 'column'
+                                    },
+                                    title: {
+                                        text: 'Kecamatan Kota Bogor'
+                                    },
+                                    subtitle: {
 
-                        },
-                        xAxis: {
-                            categories: [
-                                'Bogor Tengah',
-                                'Bogor Utara',
-                                'Bogor Selatan',
-                                'Bogor Timur',
-                                'Bogor Barat',
-                                'Tanah Sareal'
-                            ],
-                            crosshair: true
-                        },
-                        yAxis: {
-                            min: 0,
-                            title: {
-                                text: 'Rainfall (mm)'
-                            }
-                        },
-                        tooltip: {
-                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                                '<td style="padding:0"><b>{point.y:f} buah</b></td></tr>',
-                            footerFormat: '</table>',
-                            shared: true,
-                            useHTML: true
-                        },
-                        plotOptions: {
-                            column: {
-                                pointPadding: 0.2,
-                                borderWidth: 0
-                            }
-                        },
-                        series: [{
-                            name: 'Jumlah Posyandu ',
-                            data: [38, 50, 20, 10, 17, 13]
+                                    },
+                                    xAxis: {
+                                        categories: [
+                                            'Bogor Tengah',
+                                            'Bogor Utara',
+                                            'Bogor Selatan',
+                                            'Bogor Timur',
+                                            'Bogor Barat',
+                                            'Tanah Sareal'
+                                        ],
+                                        crosshair: true
+                                    },
+                                    yAxis: {
+                                        min: 0,
+                                        title: {
+                                            text: 'Rainfall (mm)'
+                                        }
+                                    },
+                                    tooltip: {
+                                        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                            '<td style="padding:0"><b>{point.y:f} buah</b></td></tr>',
+                                        footerFormat: '</table>',
+                                        shared: true,
+                                        useHTML: true
+                                    },
+                                    plotOptions: {
+                                        column: {
+                                            pointPadding: 0.2,
+                                            borderWidth: 0
+                                        }
+                                    },
+                                    series: [{
+                                        name: 'Jumlah Posyandu ',
+                                        data: [38, 50, 20, 10, 17, 13]
 
-                        }]
-                    });
-                </script>
-            </div>
+                                    }]
+                                });
+                            </script>
+                    </div>
+                  </div>
+                </div>
+             </div>
         </div>
-        <div class="col-lg-5">
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="far fa-chart-bar"></i> Grafik Strata Posyandu Kota Bogor</div>
-                <div id="jmlh_strata"></div>
-                <script>
-                    Highcharts.chart('jmlh_strata', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Kecamatan Kota Bogor'
-                        },
-                        subtitle: {
 
-                        },
-                        xAxis: {
-                            categories: [
-                                'Pratama',
-                                'Madya',
-                                'Purnama',
-                                'Mandiri'
-                            ],
-                            crosshair: true
-                        },
-                        yAxis: {
-                            min: 0,
+        <!-- CHART GRAFIK POSYANDU 2 -->
+        <div class="col-lg-6">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Grafik Strata Posyandu Kota Bogor</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <div id="jmlh_strata"></div>
+                    <script>
+                        Highcharts.chart('jmlh_strata', {
+                            chart: {
+                                type: 'column'
+                            },
                             title: {
-                                text: 'Rainfall (mm)'
-                            }
-                        },
-                        tooltip: {
-                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                                '<td style="padding:0"><b>{point.y:f} buah</b></td></tr>',
-                            footerFormat: '</table>',
-                            shared: true,
-                            useHTML: true
-                        },
-                        plotOptions: {
-                            column: {
-                                pointPadding: 0.2,
-                                borderWidth: 0
-                            }
-                        },
-                        series: [{
-                            name: 'Jumlah Posyandu ',
-                            data: [50, 70, 20, 35]
+                                text: 'Kecamatan Kota Bogor'
+                            },
+                            subtitle: {
 
-                        }]
-                    });
-                </script>
-            </div>
+                            },
+                            xAxis: {
+                                categories: [
+                                    'Pratama',
+                                    'Madya',
+                                    'Purnama',
+                                    'Mandiri'
+                                ],
+                                crosshair: true
+                            },
+                            yAxis: {
+                                min: 0,
+                                title: {
+                                    text: 'Rainfall (mm)'
+                                }
+                            },
+                            tooltip: {
+                                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                    '<td style="padding:0"><b>{point.y:f} buah</b></td></tr>',
+                                footerFormat: '</table>',
+                                shared: true,
+                                useHTML: true
+                            },
+                            plotOptions: {
+                                column: {
+                                    pointPadding: 0.2,
+                                    borderWidth: 0
+                                }
+                            },
+                            series: [{
+                                name: 'Jumlah Posyandu ',
+                                data: [50, 70, 20, 35]
+
+                            }]
+                        });
+                    </script>
+                      </div>
+                </div>
+             </div>
+        </div>
+
+        <!-- CHART GRAFIK POSYANDU 2 -->
+        <div class="col-lg-7">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Total Pembagian Strata Per-Kecamatan</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="continer-fluid">
+                        <div class="row">
+                            <div id="container"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container',{ chart: { type: 'column' }, title: { text: 'Total Pembagian Stata Per-Kecamatan' }, xAxis: { categories: ['Bogor Tengah', 'Bogor Utara' , 'Bogor Selatan' , 'Bogor Timur' , 'Bogor Barat' , 'Tanah Sareal' ] }, yAxis: { allowDecimals: false, min: 0, title: { text: 'Strata Posyandu' } }, tooltip: { formatter: function () { return '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + 'Total Posyandu: ' + this.point.stackTotal; } }, plotOptions: { column: { stacking: 'normal' } }, series: [{ name: 'Pratama' , data: [5,5,7,8,9,10], stack: 'Strata' }, { name: 'Madya' , data: [7,6,9,1,2,1], stack: 'Strata' }, { name: 'Purnama' , data: [5,3,2,2,1,9], stack: 'Strata' }, { name: 'Mandiri' , data: [2,5,6,4,6,2], stack: 'Strata' }] }); </script></div> </div> <!-- /.container-fluid -->
+                             </div>
         </div>
     </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div id="container"></div>
-
-            <script type=text/javascript> Highcharts.chart('container', { chart: { type: 'column' }, title: { text: 'Total Pembagian Stata Per-Kecamatan' }, xAxis: { categories: ['Bogor Tengah', 'Bogor Utara' , 'Bogor Selatan' , 'Bogor Timur' , 'Bogor Barat' , 'Tanah Sareal' ] }, yAxis: { allowDecimals: false, min: 0, title: { text: 'Strata Posyandu' } }, tooltip: { formatter: function () { return '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + 'Total Posyandu: ' + this.point.stackTotal; } }, plotOptions: { column: { stacking: 'normal' } }, series: [{ name: 'Pratama' , data: [5,5,7,8,9,10], stack: 'Strata' }, { name: 'Madya' , data: [7,6,9,1,2,1], stack: 'Strata' }, { name: 'Purnama' , data: [5,3,2,2,1,9], stack: 'Strata' }, { name: 'Mandiri' , data: [2,5,6,4,6,2], stack: 'Strata' }] }); </script> </div> </div> </div> <!-- /.container-fluid -->
-
                 </div>
 <!-- End of Main Content -->
