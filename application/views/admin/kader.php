@@ -257,7 +257,71 @@
                              </div>
             </div>
         </div>
-                
+
+                  <!-- DataTales Example -->
+        <div class="row">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold">Data Wanita Usia Subur & Pasangan Usia Subur</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Lengkap</th>
+                      <th>Kategori</th>
+                      <th>Kegiatan</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Lengkap</th>
+                      <th>Kategori</th>
+                      <th>Kegiatan</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <th>1</th>
+                      <th>Fikri Fahmi Amin</th>
+                      <th>Aida Sri Hastuti</th>
+                      <th>70</th>
+                      <th>
+                          <a href="" class="badge badge-success" title="Edit data" data-toggle="modal" data-target="#modal_bayita">Edit</a>
+                          <a href="" class="badge badge-danger" title="Edit data" data-toggle="modal" data-target="#modal_bayita">Delete</a>
+                        </th>
+                    </tr>
+                    <!-- PEMANGGILAN DATA PADA DATABASE -->
+<!--                     <?php $i = 1; ?>
+                    <?php foreach ($wuspus as $wp) : ?>
+                      <tr>
+                        <th scope="row"><?= $i; ?></th>
+                        <th><?= $wp['biodata_id'] ?></th>
+                        <th><?= $wp['biodata_pasangan'] ?></th>
+                        <th><?= $wp['kategori_id'] ?></th>
+                        <th><?= $wp['dasawisma_id'] ?></th>
+                        <th><?= $wp['jumlah_anak'] ?></th>
+                        <th><?= $wp['tahapan_ks'] ?></th>
+                        <th><?= $wp['catatan'] ?></th>
+                        <th>
+                          <a href="" class="badge badge-primary" title="Lihat Detail" data-toggle="modal" data-target="#modal_bayita">Detail</a>
+                          <a href="" class="badge badge-success" title="Edit data" data-toggle="modal" data-target="#modal_bayita">Edit</a>
+                          <a href="" class="badge badge-danger" title="Hapus Data" data-toggle="modal" data-target="#modal_bayita">Delete</a>
+                        </th>
+                        <?php $i++; ?>
+                      <?php endforeach; ?> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>      
     </div>
 </div>
     <!-- End of Main Content -->

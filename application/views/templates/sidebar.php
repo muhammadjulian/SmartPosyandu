@@ -173,7 +173,7 @@ if ($this->session->userdata('role_id') == 1) {
             <a class="collapse-item" href="<?= base_url('kader/databayita'); ?>">Data Bayi/Balita</a>
             <a class="collapse-item" href="<?= base_url('kader/dataibuhamil'); ?>">Data Ibu Hamil, Nifas,<br>Menyusui</a>
             <a class="collapse-item" href="forgot-password.html">Data Lansia</a>
-            <a class="collapse-item" href="forgot-password.html">Data WUS & PUS</a>
+            <a class="collapse-item" href="<?= base_url('kader/datawuspus'); ?>">Data WUS & PUS</a>
           </div>
         </div>
       </li>

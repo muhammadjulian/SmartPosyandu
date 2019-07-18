@@ -7,6 +7,8 @@ class Kader extends CI_Controller
         {
             parent::__construct();
             $this->load->model("layananutama_m");
+            $this->load->model("bayita_m");
+            $this->load->model("wuspus_m");
         }
 
     public function index()
@@ -21,6 +23,10 @@ class Kader extends CI_Controller
         $this->load->view('admin/Kader', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA IMUNISASI
+    // =====================================================================
     public function imunisasi(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -33,6 +39,9 @@ class Kader extends CI_Controller
         $this->load->view('templates/foot');
     }
 
+    // ======================================================================
+    //                  DATA LAYANAN UTAMA
+    // =====================================================================
     public function layanan_utama(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -72,8 +81,13 @@ class Kader extends CI_Controller
             redirect('kader/layanan_utama');
     }
 
+    // ======================================================================
+    //                  DATA DATA BAYI DAN BALITA
+    // =====================================================================
+
     public function databayita(){
         $data['title'] = 'Data Sasaran Posyandu';
+        $data['bayita']= $this->bayita_m->getAllbayita();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -83,6 +97,10 @@ class Kader extends CI_Controller
         $this->load->view('kader/databayita', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA DATA IBU HAMIL
+    // =====================================================================
 
     public function dataibuhamil(){
         $data['title'] = 'Data Sasaran Posyandu';
@@ -95,17 +113,26 @@ class Kader extends CI_Controller
         $this->load->view('kader/dataibuhamil', $data);
         $this->load->view('templates/foot');
     }
-    public function dataibunifas(){
-        $data['title'] = 'Data Sasaran Posyandu';
+
+    // ======================================================================
+    //                  DATA WUS PUS
+    // =====================================================================
+    public function datawuspus(){
+        $data['title'] = 'Data WUS PUS';
+        $data['wuspus'] = $this->wuspus_m->getAllwuspus();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('kader/dataibunifas', $data);
+        $this->load->view('kader/datawuspus', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA IBU MENYUSUI
+    // =====================================================================
     public function dataibumenyusui(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -117,6 +144,10 @@ class Kader extends CI_Controller
         $this->load->view('kader/dataibumenyusui', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA SIP FORMAT 1
+    // =====================================================================
 
     public function SIP_format1(){
         $data['title'] = 'Data Sasaran Posyandu';
@@ -130,6 +161,9 @@ class Kader extends CI_Controller
         $this->load->view('templates/foot');
     }
 
+    // ======================================================================
+    //                  DATA SIP FORMAT 2
+    // =====================================================================
     public function SIP_format2(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -141,6 +175,10 @@ class Kader extends CI_Controller
         $this->load->view('kader/SIP_format2', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA SIP FORMAT 3
+    // =====================================================================
     public function SIP_format3(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -152,6 +190,10 @@ class Kader extends CI_Controller
         $this->load->view('kader/SIP_format3', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA SIP FORMAT 4
+    // =====================================================================
     public function SIP_format4(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -163,6 +205,10 @@ class Kader extends CI_Controller
         $this->load->view('kader/SIP_format4', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA SIP FORMAT 5
+    // =====================================================================
     public function SIP_format5(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -174,6 +220,10 @@ class Kader extends CI_Controller
         $this->load->view('kader/SIP_format5', $data);
         $this->load->view('templates/foot');
     }
+
+    // ======================================================================
+    //                  DATA SIP FORMAT 6
+    // =====================================================================
     public function SIP_format6(){
         $data['title'] = 'Data Sasaran Posyandu';
         $data['user'] = $this->db->get_where('user', ['email' =>

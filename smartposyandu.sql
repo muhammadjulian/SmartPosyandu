@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 04:25 AM
+-- Generation Time: Jul 18, 2019 at 09:20 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -28,12 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bayita` (
   `id` int(11) NOT NULL,
-  `nik` int(20) NOT NULL,
-  `nik_ibu` int(20) NOT NULL,
-  `nama` varchar(128) NOT NULL,
+  `biodata_id` int(11) NOT NULL,
+  `biodata_ibu` int(11) NOT NULL,
   `umur` int(3) NOT NULL,
-  `tempat_lahir` varchar(128) NOT NULL,
-  `tanggal_lahir` int(128) NOT NULL,
   `bb_saat_lahir` varchar(5) NOT NULL,
   `tanggal_registrasi` date NOT NULL,
   `catatan` varchar(500) DEFAULT NULL
@@ -48,10 +45,11 @@ CREATE TABLE `bayita` (
 CREATE TABLE `biodata` (
   `id` int(11) NOT NULL,
   `nik` int(20) NOT NULL,
+  `kategori_id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `jk` varchar(1) NOT NULL,
   `tempat_lahir` varchar(128) NOT NULL,
-  `tanggal_lahir` int(20) NOT NULL,
+  `tanggal_lahir` varchar(20) NOT NULL,
   `posyandu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -59,9 +57,9 @@ CREATE TABLE `biodata` (
 -- Dumping data for table `biodata`
 --
 
-INSERT INTO `biodata` (`id`, `nik`, `nama`, `jk`, `tempat_lahir`, `tanggal_lahir`, `posyandu_id`) VALUES
-(1, 12345, 'Abu Jahal', 'L', 'Mekah, Arab Saudi', 17790, 4),
-(2, 12345678, 'Abu Lahab', 'L', 'Madinah, Arab Saudi', 301912, 5);
+INSERT INTO `biodata` (`id`, `nik`, `kategori_id`, `nama`, `jk`, `tempat_lahir`, `tanggal_lahir`, `posyandu_id`) VALUES
+(1, 0, 0, 'Abu Jahal', 'L', 'Mekah, Arab Saudi', '17790', 5),
+(2, 0, 0, 'Abu Lahab', 'L', 'Madinah, Arab Saudi', '301912', 5);
 
 -- --------------------------------------------------------
 
@@ -83,14 +81,12 @@ CREATE TABLE `dasawisma` (
 
 CREATE TABLE `ibu_hamil` (
   `id` int(11) NOT NULL,
-  `nik` int(20) NOT NULL,
-  `nik_pasangan` int(20) NOT NULL,
-  `nama` varchar(128) NOT NULL,
+  `biodata_id` int(11) NOT NULL,
   `umur_kehamilan` int(3) NOT NULL,
   `ukuran-lila` int(5) NOT NULL,
   `pmt` varchar(25) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `tanggal_regsitrasi` int(128) NOT NULL,
+  `status` enum('Ibu Hamil','Ibu Nifas','','') NOT NULL,
+  `tanggal_regsitrasi` date NOT NULL,
   `catatan` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -102,15 +98,32 @@ CREATE TABLE `ibu_hamil` (
 
 CREATE TABLE `ibu_menyusui` (
   `id` int(11) NOT NULL,
-  `nik` int(20) NOT NULL,
-  `nik_pasangan` int(20) NOT NULL,
-  `nik_anak` int(20) NOT NULL,
-  `nama` varchar(128) NOT NULL,
+  `biodata_id` int(11) NOT NULL,
+  `biodata_anak` int(11) NOT NULL,
   `ukuran_lila` int(10) NOT NULL,
-  `masa_menyusui` varchar(25) NOT NULL,
-  `tanggal_registrasi` int(128) NOT NULL,
+  `masa_menyusui` date NOT NULL,
+  `tanggal_registrasi` date NOT NULL,
   `catatan` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL,
+  `kategori` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `kategori`) VALUES
+(1, 'WUS'),
+(2, 'PUS');
 
 -- --------------------------------------------------------
 
@@ -230,7 +243,7 @@ INSERT INTO `kelurahan` (`id`, `kecamatan_id`, `kelurahan`) VALUES
 
 CREATE TABLE `lansia` (
   `id` int(11) NOT NULL,
-  `nik` int(20) NOT NULL,
+  `biodata_id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
   `tempat_lahir` varchar(128) NOT NULL,
   `tanggal_lahir` date NOT NULL,
@@ -246,7 +259,8 @@ CREATE TABLE `lansia` (
 
 CREATE TABLE `layanantambahan` (
   `id` int(2) NOT NULL,
-  `layanantambahan` varchar(50) NOT NULL
+  `layanantambahan` varchar(50) NOT NULL,
+  `periode` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -282,7 +296,7 @@ CREATE TABLE `posyandu` (
   `alamat` varchar(100) NOT NULL,
   `strata_id` int(4) NOT NULL,
   `lat` varchar(100) NOT NULL,
-  `lng` int(100) NOT NULL
+  `lng` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -290,8 +304,9 @@ CREATE TABLE `posyandu` (
 --
 
 INSERT INTO `posyandu` (`id`, `kecamatan_id`, `kelurahan_id`, `posyandu`, `alamat`, `strata_id`, `lat`, `lng`) VALUES
-(5, 5, 8, 'merah', 'jl. buntu', 3, 'frt', 4444),
-(7, 3, 9, 'jajal', 'jalan maju terus', 4, 'wssssssssss', 12123123);
+(5, 5, 8, 'merah', 'jl. buntu', 3, '-6.595938', '106.790629'),
+(7, 3, 9, 'jajal', 'jalan maju terus', 4, '-6.592165', '106.795477'),
+(8, 3, 10, 'kuning', 'jalan murah', 2, '-6.592727', '106.797874');
 
 -- --------------------------------------------------------
 
@@ -328,7 +343,7 @@ CREATE TABLE `user` (
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -336,11 +351,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(5, 'julian', 'muh@student.itera.ac.id', 'default.jpg', '$2y$10$//CTmq1EWZ.xBehuErUczu/wfhHTGCBSc63vM3/vVhcPV8tjL31iy', 1, 1, 1562418900),
-(6, 'malih', 'malih@student.itera.ac.id', 'default.jpg', '$2y$10$gftFYYLNnvw7bFPQZU4DqOB..HU84VgxmHZyUADBhCSPSUS8ipSue', 3, 1, 1562428102),
-(7, 'aja', 'aja@student.itera.ac.id', 'default.jpg', '$2y$10$ZO1KU66urqab2clTXiLRYOcjFTRMiLDY3SvuRw3G9b2MG0RDC7Da6', 4, 1, 1562551121),
-(8, 'itu', 'itu@student.itera.ac.id', 'default.jpg', '$2y$10$1cG/fhVg4EDwp.aR2UKf4eqD0uMT3FeoDwwS7B5WEGR4MCCNuPEOC', 2, 1, 1562551166),
-(9, 'Ahmad', 'ahmad@student.itera.ac.id', 'default.jpg', '$2y$10$JT3oRiophKc5HR0T4crWHeCWlfnIz/r9z4oyAAbr0MwS646qUJ8wy', 5, 1, 1562552762);
+(5, 'julian', 'muh@student.itera.ac.id', 'default.jpg', '$2y$10$//CTmq1EWZ.xBehuErUczu/wfhHTGCBSc63vM3/vVhcPV8tjL31iy', 1, 1, '0000-00-00'),
+(6, 'malih', 'malih@student.itera.ac.id', 'default.jpg', '$2y$10$gftFYYLNnvw7bFPQZU4DqOB..HU84VgxmHZyUADBhCSPSUS8ipSue', 3, 1, '0000-00-00'),
+(7, 'aja', 'aja@student.itera.ac.id', 'default.jpg', '$2y$10$ZO1KU66urqab2clTXiLRYOcjFTRMiLDY3SvuRw3G9b2MG0RDC7Da6', 4, 1, '0000-00-00'),
+(8, 'itu', 'itu@student.itera.ac.id', 'default.jpg', '$2y$10$1cG/fhVg4EDwp.aR2UKf4eqD0uMT3FeoDwwS7B5WEGR4MCCNuPEOC', 2, 1, '0000-00-00'),
+(9, 'Ahmad', 'ahmad@student.itera.ac.id', 'default.jpg', '$2y$10$JT3oRiophKc5HR0T4crWHeCWlfnIz/r9z4oyAAbr0MwS646qUJ8wy', 5, 1, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -364,6 +379,23 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 (4, 'dpmppa'),
 (5, 'kader');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wuspus`
+--
+
+CREATE TABLE `wuspus` (
+  `id` int(11) NOT NULL,
+  `biodata_id` int(11) NOT NULL,
+  `biodata_pasangan` int(11) NOT NULL,
+  `kategori_id` int(25) NOT NULL,
+  `dasawisma_id` int(11) NOT NULL,
+  `jumlah_anak` int(5) NOT NULL,
+  `tahapan_ks` varchar(128) NOT NULL,
+  `catatan` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -373,15 +405,15 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 ALTER TABLE `bayita`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nik` (`nik`),
-  ADD KEY `nik_2` (`nik`),
-  ADD KEY `nik_ibu` (`nik_ibu`);
+  ADD KEY `biodata_id` (`biodata_id`),
+  ADD KEY `biodata_ibu` (`biodata_ibu`);
 
 --
 -- Indexes for table `biodata`
 --
 ALTER TABLE `biodata`
-  ADD PRIMARY KEY (`id`,`nik`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kategori_id` (`kategori_id`);
 
 --
 -- Indexes for table `dasawisma`
@@ -395,17 +427,21 @@ ALTER TABLE `dasawisma`
 --
 ALTER TABLE `ibu_hamil`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nik` (`nik`),
-  ADD KEY `nik_pasangan` (`nik_pasangan`);
+  ADD KEY `nik` (`biodata_id`);
 
 --
 -- Indexes for table `ibu_menyusui`
 --
 ALTER TABLE `ibu_menyusui`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nik` (`nik`),
-  ADD KEY `nik_pasangan` (`nik_pasangan`),
-  ADD KEY `nik_anak` (`nik_anak`);
+  ADD KEY `nik` (`biodata_id`),
+  ADD KEY `nik_anak` (`biodata_anak`);
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `kecamatan`
@@ -425,7 +461,7 @@ ALTER TABLE `kelurahan`
 --
 ALTER TABLE `lansia`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `nik` (`nik`);
+  ADD KEY `nik` (`biodata_id`);
 
 --
 -- Indexes for table `layanantambahan`
@@ -468,6 +504,16 @@ ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wuspus`
+--
+ALTER TABLE `wuspus`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `biodata_id` (`biodata_id`),
+  ADD KEY `biodata_pasangan` (`biodata_pasangan`),
+  ADD KEY `kategori_id` (`kategori_id`),
+  ADD KEY `dasawisma_id` (`dasawisma_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -497,6 +543,11 @@ ALTER TABLE `ibu_hamil`
 ALTER TABLE `ibu_menyusui`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
@@ -525,7 +576,7 @@ ALTER TABLE `layananutama`
 -- AUTO_INCREMENT for table `posyandu`
 --
 ALTER TABLE `posyandu`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `strataposyandu`
 --
@@ -541,6 +592,11 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `wuspus`
+--
+ALTER TABLE `wuspus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
