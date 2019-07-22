@@ -146,6 +146,21 @@ class Kader extends CI_Controller
     }
 
     // ======================================================================
+    //                  PENIMBANGAN/HAMIL/NIFAS/MENYUSUI
+    // =====================================================================
+    public function penimbangan(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/penimbangan', $data);
+        $this->load->view('templates/foot');
+    }
+
+    // ======================================================================
     //                  DATA SIP FORMAT 1
     // =====================================================================
 

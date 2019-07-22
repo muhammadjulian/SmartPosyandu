@@ -19,11 +19,11 @@ class Auth extends CI_Controller
             $this->load->view('auth/login');
             $this->load->view('templates/footer');
         } else {
-            $this->Login();
+            $this->login();
         }
     }
 
-    private function Login()
+    private function login()
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -39,14 +39,14 @@ class Auth extends CI_Controller
 
                     ];
                     $this->session->set_userdata($data);
-                    if ($user['role_id'] == 1) {
-                        redirect('admin');
+                    if ( $user['role_id'] == 1) {
+                        redirect('admin','refresh');
                     } elseif ($user['role_id'] == 3) {
                         redirect('dinkes');
                     } elseif ($user['role_id'] == 4) {
                         redirect('dmppa');
                     } elseif ($user['role_id'] == 5) {
-                        redirect('kader');
+                        redirect('kader','refresh');
                     } else {
                         redirect('user');
                     }

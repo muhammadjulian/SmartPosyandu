@@ -75,7 +75,7 @@ if ($this->session->userdata('role_id') == 1) {
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" href="<?= base_url('kader/imunisasi'); ?>">Imunisasi</a>
-          <a class="collapse-item" href="utilities-border.html">Penimbangan</a>
+          <a class="collapse-item" href="<?= base_url('kader/penimbangan'); ?>">Penimbangan</a>
           <a class="collapse-item" href="utilities-animation.html">Pemeriksaan</a>
           <a class="collapse-item" href="utilities-other.html">Pencatatan Kematian</a>
         </div>
@@ -180,27 +180,26 @@ if ($this->session->userdata('role_id') == 1) {
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTree">
           <i class="fas fa-book"></i>
           <span>Pelayanan</span>
         </a>
-        <div id="collapseTre" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('kader/databayita'); ?>">Data Bayi/Balita</a>
-            <a class="collapse-item" href="<?= base_url('kader/dataibuhamil'); ?>">Data Ibu Hamil, Nifas,<br>Menyusui</a>
-            <a class="collapse-item" href="forgot-password.html">Data Lansia</a>
-            <a class="collapse-item" href="forgot-password.html">Data WUS & PUS</a>
+            <a class="collapse-item" href="<?= base_url('kader/penimbangan'); ?>">Penimbangan</a>
+            <a class="collapse-item" href="<?= base_url('kader/dataibuhamil'); ?>">Pemeriksaan</a>
+            <a class="collapse-item" href="forgot-password.html">Imunisasi</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTw" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-project-diagram"></i>
           <span>SIP</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTw" class="collapse" aria-labelledby="headingTw" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('kader/SIP_format1'); ?>">Format 1</a>
             <a class="collapse-item" href="<?= base_url('kader/SIP_format2'); ?>">Fromat 2</a>

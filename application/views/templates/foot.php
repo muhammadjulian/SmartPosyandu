@@ -68,6 +68,9 @@
 <!-- Tanggal Java Script -->
 <script src="<?= base_url('assets/js/bootstrap-datepicker.js');?>"> </script>
 
+<!-- Select 2 Input Form -->
+<script src="<?= base_url(); ?>assets/js/select2.full.min.js"></script>
+
 <!-- Sweet Alert -->
 <script src="<?= base_url(); ?>assets/js/sweetalert2.all.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/myscript.js"></script>
