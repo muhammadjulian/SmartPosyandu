@@ -250,6 +250,20 @@ class Kader extends CI_Controller
         $this->load->view('kader/SIP_format6', $data);
         $this->load->view('templates/foot');
     }
+    // ======================================================================
+    //                  DATA SIP FORMAT 6
+    // =====================================================================
+    public function SIP_format7(){
+        $data['title'] = 'Data Sasaran Posyandu';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/SIP_format7', $data);
+        $this->load->view('templates/foot');
+    }
 
 
 }

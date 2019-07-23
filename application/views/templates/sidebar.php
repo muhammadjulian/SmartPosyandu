@@ -115,6 +115,7 @@ if ($this->session->userdata('role_id') == 1) {
           <a class="collapse-item" href="#">Fromat 4</a>
           <a class="collapse-item" href="#">Fromat 5</a>
           <a class="collapse-item" href="#">Fromat 6</a>
+          <a class="collapse-item" href="#">Format 7</a>
         </div>
       </div>
     </li>
@@ -207,6 +208,7 @@ if ($this->session->userdata('role_id') == 1) {
             <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
             <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
             <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
+            <a class="collapse-item" href="<?= base_url('kader/SIP_format7'); ?>">Format 7</a>
           </div>
         </div>
       </li>
