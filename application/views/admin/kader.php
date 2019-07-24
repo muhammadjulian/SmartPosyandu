@@ -1,5 +1,7 @@
 <!-- Begin Page Content -->
 <script src="assets/vendor/chart.js/Chart.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <!-- Page level plugin CSS-->
 
 <div class="container-fluid">

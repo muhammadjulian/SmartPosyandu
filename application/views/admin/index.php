@@ -22,7 +22,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="<?= base_url('kader/databayita');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/databayita'); ?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!--Box Kecil 2-->
@@ -35,7 +35,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="<?= base_url('kader/dataibuhamil');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/dataibuhamil'); ?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!--Box Kecil 4-->
@@ -48,7 +48,7 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="<?= base_url('kader/dataibunifas');?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/dataibunifas'); ?>" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -60,10 +60,10 @@
                 <div class="icon">
                     <i class="fas fa-database"></i>
                 </div>
-                <a href="<?= base_url('kader/dataibumenyusui');?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('kader/dataibumenyusui'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-</div>
+    </div>
 
     <div class="row">
 
@@ -79,9 +79,9 @@
                     </div>
                 </div>
                 <div class="box-body">
-                  <div class="chart">
-                    <div class="card mb-3">
-                        <div id="jmlh_pos"></div>
+                    <div class="chart">
+                        <div class="card mb-3">
+                            <div id="jmlh_pos"></div>
                             <script>
                                 Highcharts.chart('jmlh_pos', {
                                     chart: {
@@ -131,10 +131,10 @@
                                     }]
                                 });
                             </script>
+                        </div>
                     </div>
-                  </div>
                 </div>
-             </div>
+            </div>
         </div>
 
         <!-- CHART GRAFIK POSYANDU 2 -->
@@ -149,58 +149,58 @@
                     </div>
                 </div>
                 <div class="box-body">
-                  <div class="chart">
-                    <div id="jmlh_strata"></div>
-                    <script>
-                        Highcharts.chart('jmlh_strata', {
-                            chart: {
-                                type: 'column'
-                            },
-                            title: {
-                                text: 'Kecamatan Kota Bogor'
-                            },
-                            subtitle: {
-
-                            },
-                            xAxis: {
-                                categories: [
-                                    'Pratama',
-                                    'Madya',
-                                    'Purnama',
-                                    'Mandiri'
-                                ],
-                                crosshair: true
-                            },
-                            yAxis: {
-                                min: 0,
+                    <div class="chart">
+                        <div id="jmlh_strata"></div>
+                        <script>
+                            Highcharts.chart('jmlh_strata', {
+                                chart: {
+                                    type: 'column'
+                                },
                                 title: {
-                                    text: 'Rainfall (mm)'
-                                }
-                            },
-                            tooltip: {
-                                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                                    '<td style="padding:0"><b>{point.y:f} buah</b></td></tr>',
-                                footerFormat: '</table>',
-                                shared: true,
-                                useHTML: true
-                            },
-                            plotOptions: {
-                                column: {
-                                    pointPadding: 0.2,
-                                    borderWidth: 0
-                                }
-                            },
-                            series: [{
-                                name: 'Jumlah Posyandu ',
-                                data: [50, 70, 20, 35]
+                                    text: 'Kecamatan Kota Bogor'
+                                },
+                                subtitle: {
 
-                            }]
-                        });
-                    </script>
-                      </div>
+                                },
+                                xAxis: {
+                                    categories: [
+                                        'Pratama',
+                                        'Madya',
+                                        'Purnama',
+                                        'Mandiri'
+                                    ],
+                                    crosshair: true
+                                },
+                                yAxis: {
+                                    min: 0,
+                                    title: {
+                                        text: 'Rainfall (mm)'
+                                    }
+                                },
+                                tooltip: {
+                                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                        '<td style="padding:0"><b>{point.y:f} buah</b></td></tr>',
+                                    footerFormat: '</table>',
+                                    shared: true,
+                                    useHTML: true
+                                },
+                                plotOptions: {
+                                    column: {
+                                        pointPadding: 0.2,
+                                        borderWidth: 0
+                                    }
+                                },
+                                series: [{
+                                    name: 'Jumlah Posyandu ',
+                                    data: [50, 70, 20, 35]
+
+                                }]
+                            });
+                        </script>
+                    </div>
                 </div>
-             </div>
+            </div>
         </div>
 
         <!-- CHART GRAFIK POSYANDU 2 -->
@@ -218,10 +218,57 @@
                     <div class="continer-fluid">
                         <div class="row">
                             <div id="container"></div>
-                                <script type="text/javascript">
-                                    Highcharts.chart('container',{ chart: { type: 'column' }, title: { text: 'Total Pembagian Stata Per-Kecamatan' }, xAxis: { categories: ['Bogor Tengah', 'Bogor Utara' , 'Bogor Selatan' , 'Bogor Timur' , 'Bogor Barat' , 'Tanah Sareal' ] }, yAxis: { allowDecimals: false, min: 0, title: { text: 'Strata Posyandu' } }, tooltip: { formatter: function () { return '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + 'Total Posyandu: ' + this.point.stackTotal; } }, plotOptions: { column: { stacking: 'normal' } }, series: [{ name: 'Pratama' , data: [5,5,7,8,9,10], stack: 'Strata' }, { name: 'Madya' , data: [7,6,9,1,2,1], stack: 'Strata' }, { name: 'Purnama' , data: [5,3,2,2,1,9], stack: 'Strata' }, { name: 'Mandiri' , data: [2,5,6,4,6,2], stack: 'Strata' }] }); </script></div> </div> <!-- /.container-fluid -->
-                             </div>
+                            <script type="text/javascript">
+                                Highcharts.chart('container', {
+                                    chart: {
+                                        type: 'column'
+                                    },
+                                    title: {
+                                        text: 'Total Pembagian Stata Per-Kecamatan'
+                                    },
+                                    xAxis: {
+                                        categories: ['Bogor Tengah', 'Bogor Utara', 'Bogor Selatan', 'Bogor Timur', 'Bogor Barat', 'Tanah Sareal']
+                                    },
+                                    yAxis: {
+                                        allowDecimals: false,
+                                        min: 0,
+                                        title: {
+                                            text: 'Strata Posyandu'
+                                        }
+                                    },
+                                    tooltip: {
+                                        formatter: function() {
+                                            return '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + 'Total Posyandu: ' + this.point.stackTotal;
+                                        }
+                                    },
+                                    plotOptions: {
+                                        column: {
+                                            stacking: 'normal'
+                                        }
+                                    },
+                                    series: [{
+                                        name: 'Pratama',
+                                        data: [5, 5, 7, 8, 9, 10],
+                                        stack: 'Strata'
+                                    }, {
+                                        name: 'Madya',
+                                        data: [7, 6, 9, 1, 2, 1],
+                                        stack: 'Strata'
+                                    }, {
+                                        name: 'Purnama',
+                                        data: [5, 3, 2, 2, 1, 9],
+                                        stack: 'Strata'
+                                    }, {
+                                        name: 'Mandiri',
+                                        data: [2, 5, 6, 4, 6, 2],
+                                        stack: 'Strata'
+                                    }]
+                                });
+                            </script>
+                        </div>
+                    </div> <!-- /.container-fluid -->
+                </div>
+            </div>
         </div>
     </div>
-                </div>
-<!-- End of Main Content -->
+    <!-- End of Main Content -->

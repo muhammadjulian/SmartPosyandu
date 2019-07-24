@@ -9,8 +9,8 @@ class Kominfo extends CI_Controller
         $this->load->model('Model_kominfo');
         $data['biodata'] = $this->Model_kominfo->getAll_biodata();
         $data['title'] = 'Admin';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/sidebar', $data);
@@ -23,8 +23,8 @@ class Kominfo extends CI_Controller
         $this->load->model('Model_kominfo');
         $data['kelurahan'] = $this->Model_kominfo->getAll_kelurahan();
         $data['title'] = 'Admin';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/sidebar', $data);
@@ -37,8 +37,8 @@ class Kominfo extends CI_Controller
         $this->load->model('Model_kominfo');
         $data['posyandu'] = $this->Model_kominfo->getAll_posyandu();
         $data['title'] = 'Admin';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/sidebar', $data);
@@ -59,8 +59,8 @@ class Kominfo extends CI_Controller
         $this->load->model('Model_kominfo');
         $data['strata'] = $this->Model_kominfo->getAll_strata();
         $data['title'] = 'Admin';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/sidebar', $data);

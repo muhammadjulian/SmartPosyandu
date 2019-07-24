@@ -115,7 +115,6 @@ if ($this->session->userdata('role_id') == 1) {
           <a class="collapse-item" href="#">Fromat 4</a>
           <a class="collapse-item" href="#">Fromat 5</a>
           <a class="collapse-item" href="#">Fromat 6</a>
-          <a class="collapse-item" href="#">Format 7</a>
         </div>
       </div>
     </li>
@@ -156,10 +155,10 @@ if ($this->session->userdata('role_id') == 1) {
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('kader/layanan_utama'); ?>">Biodata Penduduk</a>
-            <a class="collapse-item" href="<?= base_url('kader/layanan_utama'); ?>">Data Sumber Dana</a>
-            <a class="collapse-item" href="utilities-border.html">Dasawisma</a>
-            <a class="collapse-item" href="utilities-animation.html">Jenis Layanan</a>
+            <a class="collapse-item" href="<?= base_url('kader/biodata'); ?>">Biodata Penduduk</a>
+            <a class="collapse-item" href="<?= base_url('kader/sumberdana'); ?>">Data Sumber Dana</a>
+            <a class="collapse-item" href="<?= base_url('kader/dasawisma'); ?>">Dasawisma</a>
+            <a class="collapse-item" href="<?= base_url('kader/jenislayanan'); ?>">Jenis Layanan</a>
           </div>
         </div>
       </li>
@@ -208,7 +207,6 @@ if ($this->session->userdata('role_id') == 1) {
             <a class="collapse-item" href="<?= base_url('kader/SIP_format4'); ?>">Fromat 4</a>
             <a class="collapse-item" href="<?= base_url('kader/SIP_format5'); ?>">Fromat 5</a>
             <a class="collapse-item" href="<?= base_url('kader/SIP_format6'); ?>">Fromat 6</a>
-            <a class="collapse-item" href="<?= base_url('kader/SIP_format7'); ?>">Format 7</a>
           </div>
         </div>
       </li>
