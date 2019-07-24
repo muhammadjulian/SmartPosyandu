@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2019 at 09:20 AM
+-- Generation Time: Jul 24, 2019 at 04:52 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -47,9 +47,9 @@ CREATE TABLE `biodata` (
   `nik` int(20) NOT NULL,
   `kategori_id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
-  `jk` varchar(1) NOT NULL,
+  `jk` enum('Laki-laki','Perempuan','','') NOT NULL,
   `tempat_lahir` varchar(128) NOT NULL,
-  `tanggal_lahir` varchar(20) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
   `posyandu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -58,8 +58,7 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id`, `nik`, `kategori_id`, `nama`, `jk`, `tempat_lahir`, `tanggal_lahir`, `posyandu_id`) VALUES
-(1, 0, 0, 'Abu Jahal', 'L', 'Mekah, Arab Saudi', '17790', 5),
-(2, 0, 0, 'Abu Lahab', 'L', 'Madinah, Arab Saudi', '301912', 5);
+(3, 22222, 3, 'subro', 'Laki-laki', 'banyu', '2019-02-18', 5);
 
 -- --------------------------------------------------------
 
@@ -84,11 +83,18 @@ CREATE TABLE `ibu_hamil` (
   `biodata_id` int(11) NOT NULL,
   `umur_kehamilan` int(3) NOT NULL,
   `ukuran-lila` int(5) NOT NULL,
-  `pmt` varchar(25) NOT NULL,
-  `status` enum('Ibu Hamil','Ibu Nifas','','') NOT NULL,
+  `pmt` enum('Ya','Tidak') NOT NULL,
+  `status` enum('Ibu Hamil','Ibu Nifas') NOT NULL,
   `tanggal_regsitrasi` date NOT NULL,
   `catatan` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ibu_hamil`
+--
+
+INSERT INTO `ibu_hamil` (`id`, `biodata_id`, `umur_kehamilan`, `ukuran-lila`, `pmt`, `status`, `tanggal_regsitrasi`, `catatan`) VALUES
+(1, 1, 20, 12, 'Ya', 'Ibu Hamil', '2019-07-01', '-');
 
 -- --------------------------------------------------------
 
@@ -123,7 +129,9 @@ CREATE TABLE `kategori` (
 
 INSERT INTO `kategori` (`id`, `kategori`) VALUES
 (1, 'WUS'),
-(2, 'PUS');
+(2, 'PUS'),
+(3, 'Lansia'),
+(4, 'Bayita');
 
 -- --------------------------------------------------------
 
@@ -279,7 +287,6 @@ CREATE TABLE `layananutama` (
 --
 
 INSERT INTO `layananutama` (`id`, `layananutama`) VALUES
-(1, 'makan'),
 (12, 'baju');
 
 -- --------------------------------------------------------
@@ -290,23 +297,29 @@ INSERT INTO `layananutama` (`id`, `layananutama`) VALUES
 
 CREATE TABLE `posyandu` (
   `id` int(5) NOT NULL,
-  `kecamatan_id` int(4) NOT NULL,
-  `kelurahan_id` int(4) NOT NULL,
   `posyandu` varchar(25) NOT NULL,
+  `kelurahan_id` int(4) NOT NULL,
   `alamat` varchar(100) NOT NULL,
-  `strata_id` int(4) NOT NULL,
-  `lat` varchar(100) NOT NULL,
-  `lng` varchar(100) NOT NULL
+  `strata_id` int(2) NOT NULL,
+  `lat` varchar(25) NOT NULL,
+  `lng` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posyandu`
 --
 
-INSERT INTO `posyandu` (`id`, `kecamatan_id`, `kelurahan_id`, `posyandu`, `alamat`, `strata_id`, `lat`, `lng`) VALUES
-(5, 5, 8, 'merah', 'jl. buntu', 3, '-6.595938', '106.790629'),
-(7, 3, 9, 'jajal', 'jalan maju terus', 4, '-6.592165', '106.795477'),
-(8, 3, 10, 'kuning', 'jalan murah', 2, '-6.592727', '106.797874');
+INSERT INTO `posyandu` (`id`, `posyandu`, `kelurahan_id`, `alamat`, `strata_id`, `lat`, `lng`) VALUES
+(1, 'posyandu anggur', 8, 'Jl. Merdeka Barat N0.12', 1, '-65152637153', '81732368712'),
+(2, 'posyandu mangga', 9, 'Jl. Merdeka Timurt N0.9', 1, '-6387126321', '1231245314'),
+(3, 'posyandu pepaya', 11, 'Jl. Diponogoro No.19', 2, '-73524317574', '732674427'),
+(4, 'posyandu durian', 13, 'Jl. Sultan Agung No.10', 3, '-2343446812', '987234231'),
+(5, 'posyandu apel', 15, 'Jl. Tirtayasa No.7', 4, '-98789234712', '716278314'),
+(6, 'posyandu naga', 17, 'Jl. Bondowoso No.23', 4, '-4653527318', '823661823'),
+(7, 'posyandu sari kurma', 21, 'Jl. Mega Mendung No.5', 2, '-77214523542', '153423541'),
+(8, 'posyandu madu', 25, 'Jl. Slamet Riyadi No.22', 1, '-67576153727', '54712634127'),
+(9, 'posyandu melon', 26, 'Jl. Raya Kartini No.15', 3, '-123344578', '82374236487'),
+(10, 'posyandu semangka', 27, 'Jl. Fatmawati N0.2', 2, '-6714111742', '672345671');
 
 -- --------------------------------------------------------
 
@@ -338,7 +351,7 @@ INSERT INTO `strataposyandu` (`id`, `strata`) VALUES
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
+  `username` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
@@ -350,12 +363,13 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+INSERT INTO `user` (`id`, `name`, `username`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (5, 'julian', 'muh@student.itera.ac.id', 'default.jpg', '$2y$10$//CTmq1EWZ.xBehuErUczu/wfhHTGCBSc63vM3/vVhcPV8tjL31iy', 1, 1, '0000-00-00'),
 (6, 'malih', 'malih@student.itera.ac.id', 'default.jpg', '$2y$10$gftFYYLNnvw7bFPQZU4DqOB..HU84VgxmHZyUADBhCSPSUS8ipSue', 3, 1, '0000-00-00'),
 (7, 'aja', 'aja@student.itera.ac.id', 'default.jpg', '$2y$10$ZO1KU66urqab2clTXiLRYOcjFTRMiLDY3SvuRw3G9b2MG0RDC7Da6', 4, 1, '0000-00-00'),
 (8, 'itu', 'itu@student.itera.ac.id', 'default.jpg', '$2y$10$1cG/fhVg4EDwp.aR2UKf4eqD0uMT3FeoDwwS7B5WEGR4MCCNuPEOC', 2, 1, '0000-00-00'),
-(9, 'Ahmad', 'ahmad@student.itera.ac.id', 'default.jpg', '$2y$10$JT3oRiophKc5HR0T4crWHeCWlfnIz/r9z4oyAAbr0MwS646qUJ8wy', 5, 1, '0000-00-00');
+(9, 'Ahmad', 'ahmad@student.itera.ac.id', 'default.jpg', '$2y$10$JT3oRiophKc5HR0T4crWHeCWlfnIz/r9z4oyAAbr0MwS646qUJ8wy', 5, 1, '0000-00-00'),
+(10, 'yanto', 'yantoaja', 'default.jpg', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 5, 1, '2019-07-15');
 
 -- --------------------------------------------------------
 
@@ -480,9 +494,8 @@ ALTER TABLE `layananutama`
 --
 ALTER TABLE `posyandu`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `kelurahan_id` (`kelurahan_id`),
   ADD KEY `strata_id` (`strata_id`),
-  ADD KEY `kecamatan_id` (`kecamatan_id`);
+  ADD KEY `kelurahan_id` (`kelurahan_id`);
 
 --
 -- Indexes for table `strataposyandu`
@@ -526,7 +539,7 @@ ALTER TABLE `bayita`
 -- AUTO_INCREMENT for table `biodata`
 --
 ALTER TABLE `biodata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `dasawisma`
 --
@@ -536,7 +549,7 @@ ALTER TABLE `dasawisma`
 -- AUTO_INCREMENT for table `ibu_hamil`
 --
 ALTER TABLE `ibu_hamil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `ibu_menyusui`
 --
@@ -546,7 +559,7 @@ ALTER TABLE `ibu_menyusui`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `kecamatan`
 --
@@ -571,12 +584,12 @@ ALTER TABLE `layanantambahan`
 -- AUTO_INCREMENT for table `layananutama`
 --
 ALTER TABLE `layananutama`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `posyandu`
 --
 ALTER TABLE `posyandu`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `strataposyandu`
 --
@@ -586,7 +599,7 @@ ALTER TABLE `strataposyandu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
